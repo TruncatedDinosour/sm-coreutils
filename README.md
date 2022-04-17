@@ -58,6 +58,12 @@ $ su -c './setup/setup.sh install'
 $ su -c './setup/setup.sh uninstall'
 ```
 
+## Update
+
+```bash
+$ su -c './setup/setup.sh update'
+```
+
 # Progress
 
 See [PROGRESS.md](/PROGRESS.md)
