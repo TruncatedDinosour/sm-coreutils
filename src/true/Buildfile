@@ -1,5 +1,5 @@
-${AC:-nasm} $AFLAGS -felf64 -O3 -s true.asm
-${LD:-ld} $LDFLAGS -O3 -X -s -S -o out/true true.o
+${AC:-nasm} $AFLAGS -w+error -felf64 -O3 -s true.asm
+${LD:-ld} $LDFLAGS -O3 -X -s -S --require-defined=_start -nostdlib -o out/true true.o
 ${STRIP:-strip} $STRIPFLAGS --strip-all \
     -N __gentoo_check_ldflags__ -R .comment \
     -R .GCC.command.line --remove-section=.eh_frame \
