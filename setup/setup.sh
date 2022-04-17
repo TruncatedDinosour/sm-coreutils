@@ -28,8 +28,8 @@ main() {
     install)
         log 'Building coreutils...'
 
-        chmod +x ./build.sh
-        ./build.sh
+        chmod +x ./scripts/build.sh
+        ./scripts/build.sh
 
         slog "Installing everything into $INSTALL_INTO"
 
