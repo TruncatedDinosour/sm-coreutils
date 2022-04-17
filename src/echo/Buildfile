@@ -1,0 +1,12 @@
+${CC:-gcc} echo.c $CFLAGS -O3 -s -Wall -Wextra -Wshadow -Wpedantic -pedantic -Werror -std=c99 -o out/echo
+${STRIP:-strip} $STRIPFLAGS --strip-all \
+    -N __gentoo_check_ldflags__ -R .comment \
+    -R .GCC.command.line --remove-section=.eh_frame \
+    --remove-section=.eh_frame_hdr --remove-section=.gnu.hash \
+    --remove-section=.eh_frame_hdr --remove-section=.eh_frame_ptr \
+    --remove-section=.note.gnu.gold-version \
+    --remove-section=.note.gnu.build-id \
+    --remove-section=.note.ABI-tag --remove-section=.note \
+    --remove-section=.gnu.version --remove-section=.comment \
+    --remove-section=.note.gnu.property \
+    --merge-notes --strip-debug --strip-unneeded -x out/echo
