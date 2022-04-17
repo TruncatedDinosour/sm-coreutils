@@ -1,2 +1,2 @@
-Buildfile linguist-language=Shell
+src/*/Buildfile linguist-language=Shell
 
