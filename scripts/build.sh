@@ -19,13 +19,12 @@ main() {
 
         if [ -f 'Buildfile' ]; then
             sh Buildfile
+            cp out/* "$back/bin"
         else
             echo "WARNING: $dir: No buildfile" >&2
         fi
 
-        cp out/* "$back/bin"
         rm -rf out
-
         cd -- "$back"
     done
 }

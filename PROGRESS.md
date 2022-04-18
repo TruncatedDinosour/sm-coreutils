@@ -37,7 +37,7 @@
 - [] getfattr
 - [] getsubids
 - [] grep
-- [] groups
+- [x] groups
 - [] gunzip
 - [] gzip
 - [] head
