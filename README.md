@@ -23,8 +23,9 @@ Copylefted under the [CC BY-SA 2.0 license](https://creativecommons.org/licenses
 
 # Requirements for building
 
-- Nasm copiler
+- Nasm or any other assembly copiler
 - GCC or any other C compiler
+- G++ or any other C++ compiler
 - Binutils
 - A binary linker
 - Any x86_64 computer running Linux
