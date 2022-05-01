@@ -81,7 +81,7 @@
 - [] setfacl
 - [] setfattr
 - [] sh
-- [] sleep
+- [x] sleep
 - [] sort
 - [] stty
 - [] su
