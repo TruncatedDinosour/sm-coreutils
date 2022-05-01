@@ -3,7 +3,7 @@
 set -e
 
 main() {
-    sh ./scripts/build.sh
+    sh ./scripts/tests.sh
 
     git add -A
     git commit -sa
