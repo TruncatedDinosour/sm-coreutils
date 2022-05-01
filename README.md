@@ -68,7 +68,7 @@ $ su -c './setup/setup.sh update'
 
 See [PROGRESS.md](/PROGRESS.md)
 
-# Build examples
+# Builders
 
 All build examples can be found in [builders dir](/builders), it just has
 a bunch of scripts for how you can set up build script flags to
