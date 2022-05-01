@@ -1,0 +1,5 @@
+# Resets environment
+
+unset CC AC LD STRIP \
+    AFLAGS CFLAGS STRIPFLAGS \
+    LDFLAGS CXX CXXFLAGS

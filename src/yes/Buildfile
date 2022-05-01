@@ -1,4 +1,4 @@
-${CXX:-g++} yes.cpp $CXXFLAGS -O3 -s -Wall -Wextra -Wshadow -Wpedantic -pedantic -Werror -std=c++98 -o out/yes
+${CXX:-g++} yes.cpp $CXXFLAGS -Wall -Wextra -Wshadow -Wpedantic -pedantic -Werror -std=c++98 -o out/yes
 ${STRIP:-strip} $STRIPFLAGS --strip-all \
     -N __gentoo_check_ldflags__ -R .comment \
     -R .GCC.command.line --remove-section=.eh_frame \

@@ -67,3 +67,16 @@ $ su -c './setup/setup.sh update'
 # Progress
 
 See [PROGRESS.md](/PROGRESS.md)
+
+# Build examples
+
+All build examples can be found in [builders dir](/builders), it just has
+a bunch of scripts for how you can set up build script flags to
+compile coreutils for certain uses
+
+Usage:
+
+```bash
+$ source ./builders/....
+$ ./scripts/build.sh
+```

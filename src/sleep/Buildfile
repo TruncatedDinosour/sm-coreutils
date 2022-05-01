@@ -1,4 +1,4 @@
-${CC:-gcc} sleep.c $CFLAGS -O3 -s -Wall -Wextra -Wshadow -Wpedantic -pedantic -Werror -std=c99 -o out/sleep
+${CC:-gcc} sleep.c $CFLAGS -Wall -Wextra -Wshadow -Wpedantic -pedantic -Werror -std=c99 -o out/sleep
 ${STRIP:-strip} $STRIPFLAGS --strip-all \
     -N __gentoo_check_ldflags__ -R .comment \
     -R .GCC.command.line --remove-section=.eh_frame \
