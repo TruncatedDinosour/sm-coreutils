@@ -3,7 +3,7 @@
 #include <linux/limits.h>
 
 int main(void) {
-    char cwd[PATH_MAX] = "";
+    static char cwd[PATH_MAX] = "";
 
     if (!getcwd(cwd, PATH_MAX)) {
         perror("getcwd()");

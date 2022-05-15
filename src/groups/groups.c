@@ -12,7 +12,7 @@
         return 1; \
     }
 
-const char *get_username(void) {
+static const char *get_username(void) {
     uid_t uid               = geteuid();
     const struct passwd *pw = getpwuid(uid);
 
@@ -24,7 +24,7 @@ const char *get_username(void) {
     return pw->pw_name;
 }
 
-void *mmalloc(const unsigned long long bytes) {
+static void *mmalloc(const unsigned long long bytes) {
     void *m_bytes = malloc(bytes);
 
     if (!m_bytes) {
@@ -35,13 +35,13 @@ void *mmalloc(const unsigned long long bytes) {
     return m_bytes;
 }
 
-int get_group_count(const char *username, const struct passwd *pw) {
+static int get_group_count(const char *username, const struct passwd *pw) {
     if (!pw) {
         printf("Unknown username: %s\n", username);
         return -1;
     }
 
-    int ngroups = 0;
+    static int ngroups = 0;
 
     gid_t *groups = mmalloc(sizeof(*groups));
 
@@ -51,12 +51,12 @@ int get_group_count(const char *username, const struct passwd *pw) {
     return ngroups;
 }
 
-void print_group_list(const char *username,
-                      const struct passwd *pw,
-                      const unsigned int group_count) {
+static void print_group_list(const char *username,
+                             const struct passwd *pw,
+                             const unsigned int group_count) {
     gid_t *groups = mmalloc(sizeof(*groups) * group_count);
 
-    int _tmp_ngroups = group_count;
+    int _tmp_ngroups = (int)group_count;
     getgrouplist(username, pw->pw_gid, groups, &_tmp_ngroups);
 
     fputs(getgrgid(groups[0])->gr_name, stdout);
@@ -76,7 +76,7 @@ int main(int argc, char *argv[]) {
     const int group_count = get_group_count(username, pw);
     MX(group_count == -1);
 
-    print_group_list(username, pw, group_count);
+    print_group_list(username, pw, (const unsigned int)group_count);
 
     return 0;
 }

@@ -63,6 +63,7 @@
 - [] mv
 - [] netstat
 - [] passwd
+- [x] printenv
 - [] ping
 - [] ping4
 - [] ping6

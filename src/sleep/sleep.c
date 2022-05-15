@@ -12,15 +12,15 @@
         exit(1);                           \
     }
 
-double query_to_seconds(const char *time) {
+static double query_to_seconds(const char *time) {
     const unsigned long long int string_len = strlen(time) - 1;
-    const unsigned char suffix              = time[string_len];
+    const char suffix                       = time[string_len];
 
     if (suffix >= '0' && suffix <= '9')
         return atof(time);
 
     char prefix[string_len];
-    unsigned long long multiplier = 1;
+    static unsigned long long multiplier = 1;
 
     // Init prefix
     strcpy(prefix, time);
@@ -36,16 +36,16 @@ double query_to_seconds(const char *time) {
         default: ERROR(1, "invalid suffix"); break;
     }
 
-    return atof(prefix) * multiplier;
+    return atof(prefix) * (const double)multiplier;
 }
 
 int main(int argc, char *argv[]) {
     ERROR(argc < 2, "not enough arguments");
-    double secs = 0.0;
+    static double secs = 0.0;
 
     for (int aidx = 1; aidx < argc; ++aidx)
         secs += query_to_seconds(argv[aidx]);
 
-    usleep(secs * 1000000);
+    usleep((useconds_t)(secs * 1000000));
     return 0;
 }
